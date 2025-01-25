@@ -3,22 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Supabase File Upload</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Website</h1>
-    </header>
-    <main>
-        <p>This is my first website. I’m learning how to create and publish a website!</p>
-        <button id="clickMe">Click Me</button>
-    </main>
-    <footer>
-        <p>&copy; 2025 My Website</p>
-    </footer>
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <form id="uploadForm">
+        <label for="fileUpload">Upload a file:</label>
+        <input type="file" id="fileUpload" />
+        <button type="button" id="uploadButton">Upload</button>
+    </form>
+    <div id="output"></div>
 
+    <script>
+        // Supabase initialization
+        const supabaseUrl = "https://vedhqgkrvoxqrwnhbxxs.supabase.co"; // Replace with your Supabase URL
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZlZGhxZ2tydm94cXJ3bmhieHhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc4MTMwMTcsImV4cCI6MjA1MzM4OTAxN30.uNERdYNpO9Z6vBef7XHpL8VwYk7fY46jGzTpB3u1xbw"; // Replace with your API Key
+        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+        // Add your file upload or other Supabase-related code below
+        document.getElementById('uploadButton').addEventListener('click', async () => {
+            const fileInput = document.getElementById('fileUpload');
+            const file = fileInput.files[0];
+            if (!file) {
+                alert('Please select a file!');
+                return;
+            }
+            const { data, error } = await supabase.storage
+                .from('uploads')
+                .upload(`uploads/${file.name}`, file);
+            if (error) {
+                document.getElementById('output').innerText = `Error: ${error.message}`;
+            } else {
+                document.getElementById('output').innerText = `File uploaded: ${data.path}`;
+            }
+        });
+    </script>
 </body>
 </html>
+
