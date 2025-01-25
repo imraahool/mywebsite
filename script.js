@@ -16,7 +16,7 @@ document.getElementById('uploadButton').addEventListener('click', async () => {
     // Upload file to Supabase
     const { data, error } = await supabase.storage
         .from('Noor_files') // Replace with your bucket name
-        .upload(`uploads/${file.name}`, file);
+        .upload(`Noor_files/${file.name}`, file);
 
     const outputDiv = document.getElementById('output');
     if (error) {
