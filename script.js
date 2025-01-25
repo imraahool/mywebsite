@@ -3,7 +3,7 @@ const supabaseUrl = "https://vedhqgkrvoxqrwnhbxxs.supabase.co"; // Replace with 
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZlZGhxZ2tydm94cXJ3bmhieHhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzc4MTMwMTcsImV4cCI6MjA1MzM4OTAxN30.uNERdYNpO9Z6vBef7XHpL8VwYk7fY46jGzTpB3u1xbw"; // Replace with your API Key
 const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-// Add file upload logic or other Supabase operations
+// File upload logic
 document.getElementById('uploadButton').addEventListener('click', async () => {
     const fileInput = document.getElementById('fileUpload');
     const file = fileInput.files[0];
@@ -20,4 +20,5 @@ document.getElementById('uploadButton').addEventListener('click', async () => {
         document.getElementById('output').innerText = `File uploaded: ${data.path}`;
     }
 });
+
 
