@@ -1,5 +1,5 @@
 // Initialize Supabase client with your project details
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js'
 
 const supabaseUrl = "https://vedhqgkrvoxqrwnhbxxs.supabase.co";
 const supabaseKey =
