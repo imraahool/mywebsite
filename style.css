@@ -30,4 +30,15 @@ button {
   color: white;
   border: none;
   padding: 10px 15px;
-  border-radius: 4
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#message {
+  margin-top: 20px;
+  color: green;
+}
