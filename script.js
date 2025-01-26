@@ -17,7 +17,7 @@ uploadForm.addEventListener("submit", async (e) => {
 
   const file = fileInput.files[0];
   if (!file) {
-    messageDiv.textContent = "Please select a file.";
+    messageDiv.textContent = "Please select a filewa.";
     return;
   }
 
